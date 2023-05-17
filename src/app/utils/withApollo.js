@@ -5,7 +5,7 @@ import { SessionProvider } from 'next-auth/react';
 export function initializeApollo(initialState = null) {
   const _apolloClient = new ApolloClient({
     // uri: 'http://localhost:3000/graphql',
-    uri: 'https://coffee-restaurant-7cofxyi0r-andrewbaisden.vercel.app/',
+    uri: 'https://coffee-restaurant-7cofxyi0r-andrewbaisden.vercel.app/graphql',
     cache: new InMemoryCache().restore(initialState || {}),
   });
 
