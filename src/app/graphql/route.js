@@ -3,6 +3,7 @@ import { startServerAndCreateNextHandler } from '@as-integrations/next';
 import { gql } from 'graphql-tag';
 import { menu } from '../../../data/menu';
 import { profile } from '../../../data/profile';
+import allowCors from '../utils/cors';
 
 // Define the GraphQL schema and resolvers
 const typeDefs = gql`
@@ -53,7 +54,9 @@ const server = new ApolloServer({
   resolvers,
 });
 
-const handler = startServerAndCreateNextHandler(server);
+const handler = startServerAndCreateNextHandler(server, {
+  context: async (req, res) => ({ req, res }),
+});
 
 export async function GET(request) {
   return handler(request);
@@ -62,3 +65,5 @@ export async function GET(request) {
 export async function POST(request) {
   return handler(request);
 }
+
+export default allowCors(handler);
