@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Coffee Restaurant App
 
-## Getting Started
+## Install and Setup
 
-First, run the development server:
+### Environment variable file setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+First, create a `.env.local` file and put it in the root folder. Then create a GitHub and Google client Id and secret for your `.env.local` file. Follow this guide here [https://next-auth.js.org/configuration/providers/oauth](https://next-auth.js.org/configuration/providers/oauth).
+
+Your `.env.local` file should look like this with key-value pairs:
+
+The `NEXTAUTH_SECRET` can be anything just create a random string as if you were generating a secure password there are many tools that can do this for you.
+
+```shell
+
+NEXTAUTH_SECRET="yoursecret"
+
+GITHUB_ID="yourgithubid"
+
+GITHUB_SECRET="yourgithubsecret"
+
+GOOGLE_ID="yourgoogleid"
+
+GOOGLE_SECRET="yourgooglesecret"
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### GraphQL API Usage
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The GraphQL API server is at [http://localhost:3000/graphql](http://localhost:3000/graphql)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Update the function in `utils/withApollo.js` with your GraphQL endpoint.
 
-## Learn More
+```javascript
+export function initializeApollo(initialState = null) {
+  const _apolloClient = new ApolloClient({
+    // Local GraphQL endpoint
 
-To learn more about Next.js, take a look at the following resources:
+    uri: 'http://localhost:3000/graphql',
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    // Your online GraphQL endpoint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    // uri: 'https://coffee-restaurant.vercel.app/graphql',
 
-## Deploy on Vercel
+    cache: new InMemoryCache().restore(initialState || {}),
+  });
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  return _apolloClient;
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Next, run the development server:
+
+```bash
+
+npm run dev
+
+# or
+
+yarn dev
+
+# or
+
+pnpm dev
+
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the app.
