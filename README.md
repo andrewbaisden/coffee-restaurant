@@ -1,5 +1,7 @@
 # Coffee Restaurant App
 
+![Coffee Restaurant App](/coffee-restaurant/img/coffee-restaurant.jpg 'Coffee Restaurant App')
+
 ## Install and Setup
 
 ### Environment variable file setup
