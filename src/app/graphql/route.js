@@ -12,27 +12,11 @@ const typeDefs = gql`
     foodType: String
     name: String
     description: String
-    img: String
-    nutrition: [Nutrition]
-  }
-
-  type Nutrition {
-    energy: String
-    fat: String
-    saturatedFat: String
-    carbohydrates: String
-    sugar: String
-    fibre: String
-    protien: String
-    salt: String
   }
 
   type Profile {
     id: String
-    name: String
-    location: String
     bio: String
-    img: String
   }
 
   type Query {

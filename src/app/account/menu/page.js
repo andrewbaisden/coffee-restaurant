@@ -6,7 +6,6 @@ import withApollo from '../../utils/withApollo';
 import { styled, ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../components/GlobalStyles';
 import MainMenu from '../../components/MainMenu';
-import Image from 'next/image';
 
 const theme = {
   colors: {
@@ -31,11 +30,7 @@ const LoginStatus = styled.p`
 
 const SignInOutButton = styled.button`
   color: #ffffff;
-  border: none;
-  padding: 1rem;
-  text-transform: uppercase;
-  border-radius: 1rem;
-  background: rgb(2 44 34);
+  padding: 0.5rem;
   cursor: pointer;
   margin: 2rem 0 2rem 0;
 `;
@@ -48,20 +43,6 @@ const ContentContainer = styled.div`
 const Content = styled.p`
   color: #ffffff;
   font-size: 1.4rem;
-`;
-
-const NutritionTable = styled.table`
-  border: 0.1rem solid black;
-  background: rgb(6 95 70);
-  color: #ffffff;
-`;
-
-const NutritionTableTr = styled.tr``;
-
-const NutritionTableTd = styled.td`
-  border: 0.1rem solid black;
-  background: rgb(6 95 70);
-  padding: 1rem;
 `;
 
 const ItemContainer = styled.div`
@@ -104,66 +85,12 @@ const Menu = () => {
                 {data.menu.map((items) => (
                   <ContentContainer key={items.id}>
                     <ItemContainer>
-                      <Image
-                        src={items.img}
-                        alt={items.name}
-                        width={200}
-                        height={200}
-                      />
                       <ItemDescription>
                         <Content>{items.name}</Content>
                         <Content>{items.foodType}</Content>
                         <Content>{items.description}</Content>
                       </ItemDescription>
                     </ItemContainer>
-                    <ContentContainer>
-                      <ContentContainer>
-                        {items.nutrition.map((stats) => (
-                          <NutritionTable>
-                            <NutritionTableTr>
-                              <NutritionTableTd>
-                                Energy: {stats.energy}
-                              </NutritionTableTd>
-                            </NutritionTableTr>
-                            <NutritionTableTr>
-                              <NutritionTableTd>
-                                Fat: {stats.fat}
-                              </NutritionTableTd>
-                            </NutritionTableTr>
-                            <NutritionTableTr>
-                              <NutritionTableTd>
-                                Saturated Fat: {stats.saturatedFat}
-                              </NutritionTableTd>
-                            </NutritionTableTr>
-                            <NutritionTableTr>
-                              <NutritionTableTd>
-                                Carbohydrates: {stats.carbohydrates}
-                              </NutritionTableTd>
-                            </NutritionTableTr>
-                            <NutritionTableTr>
-                              <NutritionTableTd>
-                                Sugar: {stats.sugar}
-                              </NutritionTableTd>
-                            </NutritionTableTr>
-                            <NutritionTableTr>
-                              <NutritionTableTd>
-                                Fibre: {stats.fibre}
-                              </NutritionTableTd>
-                            </NutritionTableTr>
-                            <NutritionTableTr>
-                              <NutritionTableTd>
-                                Protien: {stats.protien}
-                              </NutritionTableTd>
-                            </NutritionTableTr>
-                            <NutritionTableTr>
-                              <NutritionTableTd>
-                                Salt: {stats.salt}
-                              </NutritionTableTd>
-                            </NutritionTableTr>
-                          </NutritionTable>
-                        ))}
-                      </ContentContainer>
-                    </ContentContainer>
                   </ContentContainer>
                 ))}
               </ContentContainer>

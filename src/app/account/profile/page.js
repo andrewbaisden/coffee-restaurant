@@ -6,8 +6,6 @@ import withApollo from '../../utils/withApollo';
 import { styled, ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../components/GlobalStyles';
 import MainMenu from '../../components/MainMenu';
-import Image from 'next/image';
-import Barista from '../../../../public/barista.jpg';
 
 const theme = {
   colors: {
@@ -32,11 +30,7 @@ const LoginStatus = styled.p`
 
 const SignInOutButton = styled.button`
   color: #ffffff;
-  border: none;
-  padding: 1rem;
-  text-transform: uppercase;
-  border-radius: 1rem;
-  background: rgb(2 44 34);
+  padding: 0.5rem;
   cursor: pointer;
   margin: 2rem 0 2rem 0;
 `;
@@ -80,7 +74,6 @@ const ClientProtectPage = () => {
               <ContentContainer>
                 {data.profile.map((account) => (
                   <ContentContainer key={account.id}>
-                    <Image src={Barista} alt="Barista" width={400} />
                     <Content>{account.bio}</Content>
                   </ContentContainer>
                 ))}

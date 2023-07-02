@@ -7,17 +7,6 @@ const GET_MENU = gql`
       name
       foodType
       description
-      img
-      nutrition {
-        carbohydrates
-        energy
-        fat
-        fibre
-        protien
-        salt
-        saturatedFat
-        sugar
-      }
     }
   }
 `;

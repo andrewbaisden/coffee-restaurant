@@ -1,8 +1,6 @@
 'use client';
 import { styled, ThemeProvider } from 'styled-components';
 import GlobalStyle from '../../src/app/components/GlobalStyles';
-import Image from 'next/image';
-import CoffeeShop from '../../public/coffee-shop.jpg';
 import MainMenu from './components/MainMenu';
 
 const theme = {
@@ -49,7 +47,6 @@ export default function Home() {
               Our summer menu has arrived. Freshen up your day with our creamy
               and delicious coffee range, iced teas and mouth watering snacks.
             </CoverIntro>
-            <Image src={CoffeeShop} alt="Coffee Shop" />
           </CoverImage>
         </MainContainer>
       </ThemeProvider>

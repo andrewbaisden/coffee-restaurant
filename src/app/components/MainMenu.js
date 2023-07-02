@@ -19,7 +19,6 @@ export default function MainMenu() {
       <Link href="/nutrition">Nutrition</Link>
       <Link href="/account/menu">Menu</Link>
       <Link href="/account/profile">Profile</Link>
-      <Link href="/rewards">Rewards</Link>
     </MainNavigation>
   );
 }
