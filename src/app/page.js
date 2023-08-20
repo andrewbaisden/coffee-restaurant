@@ -14,7 +14,7 @@ const MainContainer = styled.div`
   width: 100%;
 `;
 
-const CoverImage = styled.div`
+const CoverHeadingBG = styled.div`
   margin: 2rem auto;
   display: flex;
   flex-flow: column;
@@ -34,6 +34,17 @@ const CoverIntro = styled.p`
   margin: 2rem 2rem;
 `;
 
+const Hero = styled.div`
+  margin: 2rem auto;
+  background-image: url('https://res.cloudinary.com/d74fh3kw/image/upload/v1692557430/coffee-restaurant/coffee-shop_zlkf7u.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(4 120 87);
+  height: 67.5rem;
+  width: 100%;
+`;
+
 export default function Home() {
   return (
     <>
@@ -41,13 +52,14 @@ export default function Home() {
         <GlobalStyle />
         <MainContainer>
           <MainMenu />
-          <CoverImage>
+          <CoverHeadingBG>
             <CoverHeading>Summer time is here!</CoverHeading>
             <CoverIntro>
               Our summer menu has arrived. Freshen up your day with our creamy
               and delicious coffee range, iced teas and mouth watering snacks.
             </CoverIntro>
-          </CoverImage>
+          </CoverHeadingBG>
+          <Hero></Hero>
         </MainContainer>
       </ThemeProvider>
     </>
